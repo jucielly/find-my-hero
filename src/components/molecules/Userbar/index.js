@@ -28,6 +28,10 @@ export default Userbar;
 const Container = styled.div`
  display: flex;
 
+ .user {
+     
+ }
+
  .link{
      color: #fff
  }

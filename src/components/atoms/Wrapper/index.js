@@ -10,9 +10,9 @@ width: 40%;
     color: ${props => props.theme.colors.defaultWhite};
     width: 100%;
     padding-left: 70px;
-    background-color: ${props => props.theme.colors.primary};
     border-bottom: 1px solid ${props => props.theme.colors.defaultWhite};
     margin: 15px;
+    background-color: transparent;
 }
 .icon {
     color: ${props => props.theme.colors.defaultWhite};
