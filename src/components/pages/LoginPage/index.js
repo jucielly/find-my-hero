@@ -1,16 +1,10 @@
 import React from 'react';
-import LoginForm from '../../molecules/LoginForm';
-import RegisterForm from '../../molecules/RegisterForm';
-
-
+import LoginCard from '../../organisms/LoginCard'
 
 
 const LoginPage = () => {
     return (
-        <>
-            <LoginForm />
-            <RegisterForm />
-        </>
+        <LoginCard/>
     )
 }
 

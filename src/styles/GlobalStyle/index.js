@@ -37,4 +37,9 @@ ul {
     list-style-type: none;
 }
 
+@font-face {
+    font-family: "Marvel";
+    src: url('MarvelRegular-Dj83.ttf')
+}
+
 `;
