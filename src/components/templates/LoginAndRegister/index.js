@@ -38,9 +38,10 @@ flex-direction:column;
  border-radius: 20px 0px 0px 20px;
  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px;
  h2 {
+     letter-spacing: 10px;;
      color: #fff;
-    font-family: 'Marvel';
-     font-size: 3em;
+     font-family: 'Marvel';
+     font-size: 4em;
      margin: 40px;
  }
  span{

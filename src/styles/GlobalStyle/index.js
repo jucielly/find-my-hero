@@ -39,7 +39,7 @@ ul {
 
 @font-face {
     font-family: "Marvel";
-    src: url('MarvelRegular-Dj83.ttf')
+    src: url('assets/MarvelRegular-Dj83.ttf')
 }
 
 `;
