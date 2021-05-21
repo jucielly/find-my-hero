@@ -44,7 +44,8 @@ flex-direction:column;
      margin: 40px;
  }
  span{
-                    position: absolute;
+    color: #fff;
+    position: absolute;
      margin-top: 600px;
  }
 `
