@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LogoImg = styled.img`
-width: 700px;
+width: 85%;
 `;
 
 const AvangersLogo = () => <LogoImg src='assets/marvel-heroes.png' />
