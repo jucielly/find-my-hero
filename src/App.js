@@ -1,8 +1,17 @@
 import React from 'react'
+import GlobalStyle from './styles/GlobalStyle'
+import Theme from './styles/Theme'
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes'
 
 const App = () => {
   return (
-    <div>oi</div>
+    <Theme>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Theme>
   );
 }
 
