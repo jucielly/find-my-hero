@@ -11,10 +11,10 @@ const Userbar = () => {
     return (
         <Navbar>
             <Container>
-                <div className="logo">
-                    <Logo />
+                <Logo />
+                <div className="user">
+                    <Link className="link" to="/user"><MdPersonOutline className="icon" /></Link>
                 </div>
-                <Link className="link" to="/user"><MdPersonOutline className="icon" /></Link>
             </Container >
         </Navbar>
 
