@@ -9,14 +9,13 @@ import { MdPersonOutline } from "react-icons/md";
 const Userbar = () => {
 
     return (
-        <Navbar>
             <Container>
                 <Logo />
                 <div className="user">
                     <Link className="link" to="/user"><MdPersonOutline className="icon" /></Link>
                 </div>
             </Container >
-        </Navbar>
+       
 
     );
 }
@@ -25,7 +24,7 @@ export default Userbar;
 
 
 
-const Container = styled.div`
+const Container = styled(Navbar)`
  display: flex;
 
  .user {
