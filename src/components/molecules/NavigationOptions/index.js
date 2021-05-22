@@ -7,24 +7,20 @@ import Navbar from '../../atoms/Navbar'
 const NavigationOptions = () => {
 
     return (
-        <Navbar>
-            <Nav>
-                <ul className="list">
-                    <li><Link className="link" to="/characters">PERSONAGENS</Link></li>
-                    <li><Link className="link" to="/comics">QUADRINHOS</Link></li>
-                    <li><Link className="link" to="/likeds">MEUS FAVORITOS</Link></li>
-                </ul>
-            </Nav>
-        </Navbar>
-
-
+        <Nav as="nav">
+            <ul className="list">
+                <li><Link className="link" to="/characters">PERSONAGENS</Link></li>
+                <li><Link className="link" to="/comics">QUADRINHOS</Link></li>
+                <li><Link className="link" to="/likeds">MEUS FAVORITOS</Link></li>
+            </ul>
+        </Nav>
     );
 }
 
 export default NavigationOptions;
 
 
-const Nav = styled.nav`
+const Nav = styled(Navbar)`
 .list {
 display: flex;
 align-items: center;

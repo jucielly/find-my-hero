@@ -7,7 +7,7 @@ const Navbar = styled.div`
  padding: 1em;
  background-color:${props => props.theme.colors.primary};
  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px;
- margin-bottom: 5px;;
+ margin-bottom: 2px;;
 `
 
 export default Navbar
