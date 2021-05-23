@@ -5,9 +5,9 @@ import { MdMailOutline} from "react-icons/md";
 
 
 
-const EmailInput = () => {
+const EmailInput = ({color}) => {
     return (
-        <Wrapper>
+        <Wrapper color={color}>
             <MdMailOutline className="icon"/>
             <Input placeholder="Email" className="input" />
         </Wrapper>

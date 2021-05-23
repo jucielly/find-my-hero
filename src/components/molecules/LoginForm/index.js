@@ -10,8 +10,8 @@ const LoginForm = () => {
     return (
         <>
             <Form>
-                <EmailInput />
-                <PasswordInput />
+                <EmailInput color="defaultWhite"/>
+                <PasswordInput placeholder="senha" color="defaultWhite"/>
                 <Button type="submit">LOGIN</Button>
             </Form>
 

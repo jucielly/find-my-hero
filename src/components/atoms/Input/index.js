@@ -8,6 +8,7 @@ const Input = styled.input`
  padding: 20px;
  width: 400px;
  background-color: transparent;
+ 
 
 & + input {
       margin: 30px;

@@ -15,7 +15,7 @@ width: 40%;
     background-color: transparent;
 }
 .icon {
-    color: ${props => props.theme.colors.defaultWhite};
+    color: ${props => props.theme.colors[props.color]};
     position:absolute;
     bottom:20px;
     left: 0px;

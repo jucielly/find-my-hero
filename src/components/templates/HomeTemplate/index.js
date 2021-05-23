@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'styled-components'
-import NavigationOptions from '../../molecules/NavigationOptions'
 import Search from '../../molecules/Search';
-import Userbar from '../../molecules/Userbar'
+import Header from '../../organisms/Header'
 
 
 
-const HomeTemplate = ({ children }) => {
+const HomeTemplate = ({ children, navigationOptions }) => {
     return (
         <Container>
-            <Userbar />
-            <NavigationOptions />
+            <Header navigationOptions={navigationOptions}/>
             <Search className="search" />
             {children}
         </Container>
@@ -22,11 +20,4 @@ const HomeTemplate = ({ children }) => {
 export default HomeTemplate
 
 
-const Container = styled.div`
-display:flex;
-flex-direction: column;
-
-.search {
-align-self: flex-end;
-}
-`
+const Container = styled.div``
