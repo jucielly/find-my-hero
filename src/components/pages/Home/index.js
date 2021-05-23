@@ -10,14 +10,9 @@ const Home = () => {
         <>
             <HomeTemplate navigationOptions={<NavigationOptions />} />
             <Container>
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="NICK SPENCER" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="THE AMAZING SPIDER-MAN #1" subtitle="NICK SPENCER" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="SPIDER-MAN" subtitle="PETER PARK" />
+                <ImageCard img='assets/spider-man.jpg' title="SPIDER-MAN" subtitle="PETER PARKER" linkTo="character" />
+                <ImageCard img='assets/spiderman-comics.jpg' title="THE AMAZING SPIDER-MAN #1" subtitle="NICK SPENCER" linkTo="/comic" />
+          
 
             </Container>
 
