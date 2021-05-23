@@ -5,8 +5,8 @@ import RegisterCard from '../components/organisms/RegisterCard'
 import Home from '../components/pages/Home'
 import LoginPage from '../components/pages/LoginPage'
 import Profile from '../components/pages/Profile'
-import Character from '../components/pages/Character'
-import Comic from '../components/pages/Comic'
+import CharacterInfo from '../components/pages/CharacterInfo'
+import ComicInfo from '../components/pages/ComicInfo'
 
 
 const Routes = () => {
@@ -17,8 +17,8 @@ const Routes = () => {
             <Route path="/register" exact component={RegisterCard} />
             <Route path="/home" exact component={Home} />
             <Route path="/profile" exact component={Profile} />
-            <Route path="/character" exact component={Character} />
-            <Route path="/comic" exact component={Comic} />
+            <Route path="/character" exact component={CharacterInfo} />
+            <Route path="/comic" exact component={ComicInfo} />
 
 
         </Switch>
