@@ -4,18 +4,19 @@ import Navbar from '../../atoms/Navbar'
 import { Link } from 'react-router-dom'
 import Logo from '../../atoms/Logo'
 import { MdPersonOutline } from "react-icons/md";
+import IconButton from '../../atoms/IconButton'
 
 
 const Userbar = () => {
 
     return (
-            <Container>
-                <Logo />
-                <div className="user">
-                    <Link className="link" to="/user"><MdPersonOutline className="icon" /></Link>
-                </div>
-            </Container >
-       
+        <Container>
+            <Logo />
+            <IconButton className="profile-btn">
+                <Link  to="/profile"><MdPersonOutline className="icon" /></Link>
+            </IconButton>
+        </Container >
+
 
     );
 }
@@ -26,14 +27,14 @@ export default Userbar;
 
 const Container = styled(Navbar)`
  display: flex;
+ position: relative;
 
- .user {
-     
+ .profile-btn {
+     position: absolute;
+     right:0;
+     margin: 0 25px 20px 25px;
  }
 
- .link{
-     color: #fff
- }
 
  .icon {
     color: ${props => props.theme.colors.defaultWhite};
