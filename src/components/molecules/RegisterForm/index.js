@@ -11,10 +11,10 @@ const RegisterForm = () => {
     return (
         <>
             <Form>
-                <UsernameInput/>
-                <EmailInput />
-                <PasswordInput />
-                <PasswordInput placeholder="digite a senha novamente"/>
+                <UsernameInput color="defaultWhite"/>
+                <EmailInput color="defaultWhite" />
+                <PasswordInput placeholder="senha"  color="defaultWhite"/>
+                <PasswordInput placeholder="digite a senha novamente" color="defaultWhite"/>
                 <Button type="submit">CADASTRAR</Button>
             </Form>
 

@@ -50,6 +50,8 @@ flex-direction: column;
 
 .nav {
     .list {
+        font-size: 17px;;
+color: #fff;
 display: flex;
 align-items: center;
 
