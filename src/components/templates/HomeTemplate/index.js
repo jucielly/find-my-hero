@@ -1,19 +1,23 @@
 import React from 'react';
-import NavigationOptions from '../../molecules/NavigationOptions'
+import styled from 'styled-components'
 import Search from '../../molecules/Search';
-import Userbar from '../../molecules/Userbar'
+import Header from '../../organisms/Header'
 
 
 
-const HomeTemplate = ({ children }) => {
+const HomeTemplate = ({ children, navigationOptions }) => {
     return (
-        <>
-            <Userbar />
-            <NavigationOptions />
+        <Container>
+            <Header navigationOptions={navigationOptions}/>
             <Search className="search" />
             {children}
-        </>
+        </Container>
+
+
     )
 }
 
 export default HomeTemplate
+
+
+const Container = styled.div``

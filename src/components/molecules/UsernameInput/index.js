@@ -5,9 +5,9 @@ import { MdPersonOutline } from "react-icons/md";
 
 
 
-const UsernameInput = () => {
+const UsernameInput = ({color}) => {
     return (
-        <Wrapper>
+        <Wrapper color={color}>
             <MdPersonOutline className="icon"/>
             <Input placeholder="User name" className="input" />
         </Wrapper>

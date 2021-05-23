@@ -5,11 +5,11 @@ import { MdLockOutline} from "react-icons/md";
 
 
 
-const EmailInput = () => {
+const EmailInput = ({placeholder, color}) => {
     return (
-        <Wrapper>
+        <Wrapper color={color}>
             <MdLockOutline className="icon"/>
-            <Input placeholder="Senha" className="input" />
+            <Input placeholder={placeholder} className="input" />
         </Wrapper>
     )
 }

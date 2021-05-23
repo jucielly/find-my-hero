@@ -7,6 +7,8 @@ const Input = styled.input`
  border-bottom: 1px solid ${props => props.theme.colors.primary};
  padding: 20px;
  width: 400px;
+ background-color: transparent;
+ 
 
 & + input {
       margin: 30px;
