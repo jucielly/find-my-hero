@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom'
 import HeaderTemplate from '../../templates/HeaderTemplate';
 import { MdKeyboardBackspace } from "react-icons/md";
 import IconButton from '../../atoms/IconButton'
-import ProfileForm from '../../molecules/ProfileForm'
+import EditProfile from '../../organisms/EditProfile'
+
 
 
 
@@ -16,14 +16,11 @@ const Profile = () => {
                     <Link to="/home"><MdKeyboardBackspace className="icon" /></Link>
                 </IconButton>}
                 navigationOptions={<ul className="list"> <li>MEU PERFIL</li></ul>} />
-            <Container>
-                <ProfileForm />
-            </Container>
+            <EditProfile user="Malcom X" />
         </>
     )
 }
 
 export default Profile
 
-const Container = styled.div`
-`
+    
