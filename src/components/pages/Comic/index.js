@@ -1,18 +1,15 @@
 import React from 'react';
 import HomeTemplate from '../../templates/HomeTemplate'
-import ImageCard from '../../molecules/ImageCard'
 import styled from 'styled-components';
 import NavigationOptions from '../../molecules/NavigationOptions'
 
 
-const Home = () => {
+const Comic = () => {
     return (
         <>
             <HomeTemplate navigationOptions={<NavigationOptions />} />
             <Container>
-                <ImageCard img='assets/spider-man.jpg' title="SPIDER-MAN" subtitle="PETER PARKER" linkTo="character" />
-                <ImageCard img='assets/spiderman-comics.jpg' title="THE AMAZING SPIDER-MAN #1" subtitle="NICK SPENCER" linkTo="/comic" />
-          
+           <div>oi</div>
 
             </Container>
 
@@ -20,7 +17,8 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Comic
+
 
 const Container = styled.div`
 display: flex;

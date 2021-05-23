@@ -3,21 +3,26 @@ import styled from 'styled-components';
 import BaseCard from '../../atoms/BaseCard';
 import { MdFavoriteBorder } from "react-icons/md";
 import IconButton from '../../atoms/IconButton'
+import { Link } from 'react-router-dom'
 
 
 
-const ImageCard = ({ img, title, subtitle }) => {
+const ImageCard = ({ img, title, subtitle, linkTo }) => {
     return (
+
         <StyledBaseCard>
-            <img className="img" src={img} alt="character" />
-            <div className="container">
-                <h3>{title}</h3>
-                <p>{subtitle}</p>
-            </div>
-            <IconButton className="favourite-btn">
-                < MdFavoriteBorder />
-            </IconButton>
-        </StyledBaseCard>
+            <Link to={linkTo} className="link">
+                <img className="img" src={img} alt="character" />
+                <div className="container">
+                    <h3>{title}</h3>
+                    <p>{subtitle}</p>
+                </div>
+                <IconButton className="favourite-btn">
+                    < MdFavoriteBorder />
+                </IconButton>
+            </Link>
+        </StyledBaseCard >
+
     )
 }
 
@@ -70,5 +75,13 @@ height: 390px;
             color: #F30;
         }
 
+       }
+
+       .link {
+        text-decoration: none;
+           &:visited {
+               color: #fff;
+               
+           }
        }
 `
