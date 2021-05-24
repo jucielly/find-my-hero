@@ -4,21 +4,24 @@ import styled from 'styled-components'
 import EmailInput from '../../molecules/EmailInput'
 import PasswordInput from '../../molecules/PasswordInput'
 import UsernameInput from '../../molecules/UsernameInput'
+import { useForm } from 'react-hook-form'
 
 
 
 const RegisterForm = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log('data',data);
     return (
-        <>
-            <Form>
-                <UsernameInput color="defaultWhite"/>
-                <EmailInput color="defaultWhite" />
-                <PasswordInput placeholder="senha"  color="defaultWhite"/>
-                <PasswordInput placeholder="digite a senha novamente" color="defaultWhite"/>
-                <Button type="submit">CADASTRAR</Button>
-            </Form>
 
-        </>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <UsernameInput color="defaultWhite" label="name"  register={register} required/>
+            <EmailInput color="defaultWhite"  label="email"  register={register} required/>
+            <PasswordInput placeholder="senha" color="defaultWhite" label="password"  register={register} required />
+            <PasswordInput placeholder="digite a senha novamente" color="defaultWhite"  label="confirmPassword"  register={register} required/>
+            <Button type="submit">CADASTRAR</Button>
+        </Form>
+
+
     );
 }
 
