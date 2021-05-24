@@ -3,9 +3,13 @@ import api from './api'
 
 class UserService {
     static addnewUser(user) {
-        return api.post('/users', user).then(res => {
-            console.log('data', res.data)
-        })
+        return api.post('/users', user)
+    }
+
+    static login(email,password) {
+    return api.post("/users/login", email,password)
+
+      
     }
 }
 
