@@ -8,9 +8,8 @@ import { useForm } from 'react-hook-form'
 
 
 
-const RegisterForm = () => {
+const RegisterForm = ({onSubmit, loading, error}) => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log('data',data);
     return (
 
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -18,7 +17,8 @@ const RegisterForm = () => {
             <EmailInput color="defaultWhite"  label="email"  register={register} required/>
             <PasswordInput placeholder="senha" color="defaultWhite" label="password"  register={register} required />
             <PasswordInput placeholder="digite a senha novamente" color="defaultWhite"  label="confirmPassword"  register={register} required/>
-            <Button type="submit">CADASTRAR</Button>
+            {error && <span>{error}</span>}
+            <Button type="submit" disabled={loading} >{loading ?  'carregando...': 'cadastrar'}</Button>
         </Form>
 
 

@@ -2,13 +2,14 @@ import React from 'react';
 import RegisterForm from '../../molecules/RegisterForm'
 import { Link } from 'react-router-dom'
 import LoginAndRegister from '../../templates/LoginAndRegister'
+import RegisterFormContainer from '../../../containers/RegisterForm'
 
 
 const RegisterCard = () => {
     return (
 
         <LoginAndRegister>
-            <RegisterForm  />
+            <RegisterFormContainer  />
             <span>Já tem uma conta? <Link to="/login">login</Link></span>
         </LoginAndRegister>
 
