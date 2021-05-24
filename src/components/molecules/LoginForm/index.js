@@ -3,19 +3,23 @@ import Button from '../../atoms/Button'
 import styled from 'styled-components'
 import EmailInput from '../../molecules/EmailInput'
 import PasswordInput from '../../molecules/PasswordInput'
+import { useForm } from 'react-hook-form'
+
 
 
 
 const LoginForm = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log('data',data);
     return (
-        <>
-            <Form>
-                <EmailInput color="defaultWhite"/>
-                <PasswordInput placeholder="senha" color="defaultWhite"/>
+      
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <EmailInput color="defaultWhite" label="email"  register={register} required/>
+                <PasswordInput placeholder="senha" color="defaultWhite" label="password"  register={register} required/>
                 <Button type="submit">LOGIN</Button>
             </Form>
 
-        </>
+        
     );
 }
 

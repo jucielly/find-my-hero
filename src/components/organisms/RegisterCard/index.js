@@ -8,7 +8,7 @@ const RegisterCard = () => {
     return (
 
         <LoginAndRegister>
-            <RegisterForm btnName="Registrar" />
+            <RegisterForm  />
             <span>Já tem uma conta? <Link to="/login">login</Link></span>
         </LoginAndRegister>
 
