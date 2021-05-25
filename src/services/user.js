@@ -11,8 +11,17 @@ class UserService {
             email,
             password
         })
+    }
 
+    static getUser() {
+        return api.get("/users/current")
+    }
 
+    static editUser(user, currentPassword) {
+        return api.patch('/users/current', {
+            user,
+            currentPassword
+        })
     }
 }
 
