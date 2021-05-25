@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import UserService from '../services/user'
 import api from '../services/api'
 import { useHistory } from 'react-router-dom'
+import ErrorService from '../services/error'
 
 const LOCAL_STORAGE_KEY = 'user'
 
@@ -20,10 +21,13 @@ const AuthProvider = ({ children }) => {
     const [ready, setReady] = useState(false)
     const [user, setUser] = useState()
     const [loggedIn, setIsLoggedIn] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState()
 
     const setToken = (token) => api.defaults.headers['Authorization'] = `Bearer ${token}`
 
     const login = (email, password) => {
+        setLoading(true)
         UserService.login(email, password).then(response => {
             const { user, token } = response.data
             setUser(user)
@@ -31,7 +35,10 @@ const AuthProvider = ({ children }) => {
             setToken(token)
             push('/home')
             localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ user, token }))
-        }).catch(console.error)
+        }).catch(error => {
+            const message = ErrorService.getErrorMessage(error)
+            setError(message)
+        }).finally(() => setLoading(false))
     }
     const logout = () => {
         setIsLoggedIn(false)
@@ -56,7 +63,9 @@ const AuthProvider = ({ children }) => {
             user,
             loggedIn,
             login,
-            logout
+            logout,
+            loading,
+            error
         }}>
             {ready ? children : null}
         </authContext.Provider>

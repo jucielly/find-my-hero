@@ -1,25 +1,42 @@
 import React from 'react';
 import Button from '../../atoms/Button'
 import styled from 'styled-components'
-import EmailInput from '../../molecules/EmailInput'
-import PasswordInput from '../../molecules/PasswordInput'
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../../providers/auth'
+import TextField from '../../molecules/TextField'
+import { MdMailOutline } from "react-icons/md";
+import { MdLockOutline } from "react-icons/md";
+
+
 
 
 
 const LoginForm = () => {
     const { register, handleSubmit } = useForm();
-    const { login, loginError, loginLoading} = useAuth()
+    const { login, error, loading } = useAuth()
 
-     
+
     const onSubmit = data => login(data.email, data.password)
     return (
 
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <EmailInput color="defaultWhite" label="email" register={register} required />
-            <PasswordInput placeholder="senha" color="defaultWhite" label="password" register={register} required />
-            <Button type="submit">LOGIN</Button>
+            <TextField
+                type="email"
+                color="defaultWhite" name="email"
+                placeholder="email"
+                icon={MdMailOutline}
+                required
+                {...register("email", { required: true })} />
+            <TextField
+                placeholder="senha"
+                color="defaultWhite"
+                name="password"
+                icon={MdLockOutline}
+                required
+                {...register("password", { required: true })} />
+            {error && <span>{error}</span>}
+            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'login'}</Button>
+
         </Form>
 
 

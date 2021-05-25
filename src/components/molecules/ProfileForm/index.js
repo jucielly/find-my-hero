@@ -1,22 +1,88 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../../atoms/Button'
+import LinkButton from '../../atoms/LinkButton'
+import { useAuth } from '../../../providers/auth'
 import styled from 'styled-components'
-import EmailInput from '../../molecules/EmailInput'
-import PasswordInput from '../../molecules/PasswordInput'
-import UsernameInput from '../../molecules/UsernameInput';
+import { useForm } from 'react-hook-form'
+import TextField from '../../molecules/TextField'
+import { MdMailOutline } from "react-icons/md";
+import { MdLockOutline } from "react-icons/md";
+import { MdPersonOutline } from "react-icons/md";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
 
 
-const ProfileForm = () => {
+const schema = yup.object().shape({
+    name: yup.string().required('Defina o nome'),
+    email: yup.string().email('Email inválido').required('Defina seu email'),
+    currentPassword: yup.string().required('Digite sua senha atual').min(7, 'Sua senha deve ter mais de 7 caracteres'),
+    password: yup.string().test('min', 'Sua senha deve ter mais de 7 caracteres', (value) => !value || (value && value.length > 6)),
+    confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Senhas não conferem')
+
+})
+
+
+const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
+    const { logout } = useAuth()
+
+    useEffect(() => {
+        if (initialValues) {
+            setValue('name', initialValues.name)
+            setValue('email', initialValues.email)
+        }
+    }, [initialValues])
+
+    const handleLogout = () => {
+        logout()
+    }
+
+
     return (
-            <Form>
-                <UsernameInput/>
-                <EmailInput />
-                <PasswordInput placeholder='senha antiga' className="input"/>
-                <PasswordInput placeholder='nova senha' />
-                <PasswordInput placeholder='confirme nova senha' />
-                <Button type="submit">LOGIN</Button>
-            </Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+                color="primary"
+                placeholder="nome"
+                name="name"
+                icon={MdPersonOutline}
+                error={errors.name?.message}
+                {...register("name", { required: true })} />
+            <TextField
+                type="email"
+                color="primary"
+                name="email"
+                placeholder="email"
+                icon={MdMailOutline}
+                error={errors.email?.message}
+                {...register("email", { required: true })} />
+            <TextField
+                placeholder="senha atual"
+                color="primary"
+                name="currentPassword"
+                icon={MdLockOutline}
+                error={errors.currentPassword?.message}
+                {...register("currentPassword", { required: true })} />
+            <TextField
+                placeholder="nova senha"
+                color="primary"
+                name="password"
+                icon={MdLockOutline}
+                error={errors.password?.message}
+                {...register("password", { required: true })} />
+            <TextField
+                placeholder="confirma nova senha"
+                color="primary"
+                name="confirmPassword"
+                icon={MdLockOutline}
+                error={errors.confirmPassword?.message}
+                {...register("confirmPassword", { required: true })} />
+            {error && <span>{error}</span>}
+            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'salvar'}</Button>
+            <LinkButton type='button' onClick={handleLogout}>Sair</LinkButton>
+        </Form >
     );
 }
 
