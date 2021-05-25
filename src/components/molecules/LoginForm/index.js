@@ -13,7 +13,7 @@ import { MdLockOutline } from "react-icons/md";
 
 const LoginForm = () => {
     const { register, handleSubmit } = useForm();
-    const { login, loginError, loginLoading } = useAuth()
+    const { login, error, loading } = useAuth()
 
 
     const onSubmit = data => login(data.email, data.password)
@@ -34,7 +34,9 @@ const LoginForm = () => {
                 icon={MdLockOutline}
                 required
                 {...register("password", { required: true })} />
-            <Button type="submit">LOGIN</Button>
+            {error && <span>{error}</span>}
+            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'login'}</Button>
+
         </Form>
 
 
