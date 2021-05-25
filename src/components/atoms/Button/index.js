@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {darken} from 'polished'
 
 const Button = styled.button`
+text-transform: uppercase;
 font-family: 'Roboto', sans-serif;
 border: none;
 background-color: ${props => props.theme.colors.secondary};

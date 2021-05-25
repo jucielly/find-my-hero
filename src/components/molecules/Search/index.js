@@ -1,7 +1,6 @@
 import React from 'react'
 import Input from "../../atoms/Input"
 import IconButton from '../../atoms/IconButton'
-import Wrapper from '../../atoms/Wrapper'
 import { MdSearch } from "react-icons/md";
 import styled from 'styled-components'
 
@@ -10,7 +9,7 @@ import styled from 'styled-components'
 const Search = () => {
     return (
         <StyledWrapper>
-            <Input placeholder="Senha" className="search-input" />
+            <Input placeholder="pesquisar" className="search-input" />
             <IconButton className="search-btn"><MdSearch /></IconButton>
         </StyledWrapper>
     )
@@ -19,8 +18,13 @@ const Search = () => {
 
 export default Search;
 
-const StyledWrapper = styled(Wrapper)`
+const StyledWrapper = styled.div`
+position: relative;
+width: 40%;
+padding-bottom: 0px;
+border-bottom: 1px solid ${props => props.theme.primary};
 .search-input {
+    color: ${props => props.theme.primary};
     width: 100%;
     padding-right: 70px;
 }
@@ -39,5 +43,25 @@ const StyledWrapper = styled(Wrapper)`
     
 }
 
+.icon {
+    color: ${props => props.theme.colors.primary};
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 70px;
+    margin: 5px;
+    height: 30px;
+}
+
+.error{
+    margin-left: 20px;
+    color: red;
+}
+
 
 `
+
+
+
+
+

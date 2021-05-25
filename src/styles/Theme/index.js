@@ -9,7 +9,9 @@ const theme = {
         secondary: '#F30000',
         terciary: '#333333',
         fontColor: '#ccc',
-        defaultWhite: '#fff'
+        defaultWhite: '#fff',
+        success: '#659B5E',
+        danger: '#E33D2F',
     }
 }
 

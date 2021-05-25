@@ -37,16 +37,12 @@ flex-direction:column;
  background-color: ${props => props.theme.colors.primary};
  border-radius: 20px 0px 0px 20px;
  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px;
+ color: #fff;
  h2 {
      letter-spacing: 10px;;
-     color: #fff;
      font-family: 'Marvel';
      font-size: 4em;
      margin: 40px;
  }
- span{
-    color: #fff;
-    position: absolute;
-     margin-top: 600px;
- }
+
 `
