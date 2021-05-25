@@ -4,7 +4,6 @@ import { darken } from 'polished'
 
 const Input = styled.input`
  border: 1px;
- border-bottom: 1px solid ${props => props.theme.colors.primary};
  padding: 20px;
  width: 400px;
  background-color: transparent;
