@@ -1,22 +1,58 @@
 import React from 'react';
 import Button from '../../atoms/Button'
 import styled from 'styled-components'
-import EmailInput from '../../molecules/EmailInput'
-import PasswordInput from '../../molecules/PasswordInput'
-import UsernameInput from '../../molecules/UsernameInput';
+import { useForm } from 'react-hook-form'
+import TextField from '../../molecules/TextField'
+import { MdMailOutline } from "react-icons/md";
+import { MdLockOutline } from "react-icons/md";
+import { MdPersonOutline } from "react-icons/md";
 
 
 
-const ProfileForm = () => {
+
+const ProfileForm = ({ onSubmit }) => {
+    const { register, handleSubmit } = useForm();
     return (
-            <Form>
-                <UsernameInput/>
-                <EmailInput />
-                <PasswordInput placeholder='senha antiga' className="input"/>
-                <PasswordInput placeholder='nova senha' />
-                <PasswordInput placeholder='confirme nova senha' />
-                <Button type="submit">LOGIN</Button>
-            </Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+                color="primary"
+                placeholder="nome"
+                name="name"
+                icon={MdPersonOutline}
+                required
+                {...register("name", { required: true })} />
+            <TextField
+                type="email"
+                color="primary" 
+                name="email"
+                placeholder="email"
+                icon={MdMailOutline}
+                required
+                {...register("email", { required: true })} />
+            <TextField
+                placeholder="senha antiga"
+                color="primary"
+                name="oldPassword"
+                icon={MdLockOutline}
+                required
+                {...register("password", { required: true })} />
+            <TextField
+                placeholder="nova antiga"
+                color="primary"
+                name="oldPassword"
+                icon={MdLockOutline}
+                required
+                {...register("password", { required: true })} />
+            <TextField
+                placeholder="confirma nova senha"
+                color="primary"
+                name="confirmPassword"
+                icon={MdLockOutline}
+                required
+                {...register("confirmPassword", { required: true })} />
+
+            <Button type="submit">LOGIN</Button>
+        </Form >
     );
 }
 
