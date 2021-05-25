@@ -16,8 +16,8 @@ import * as yup from "yup";
 const schema = yup.object().shape({
     name: yup.string().required('Defina o nome'),
     email: yup.string().email('Email inválido').required('Defina seu email'),
-    currentPassword: yup.string().min(8, 'Sua senha deve ter mais de 8 caracteres').required('Digite sua senha atual'),
-    password: yup.string().test('min', 'Sua senha deve ter mais de 8 caracteres', (value) => !value || (value && value.length > 7)),
+    currentPassword: yup.string().required('Digite sua senha atual').min(7, 'Sua senha deve ter mais de 7 caracteres'),
+    password: yup.string().test('min', 'Sua senha deve ter mais de 7 caracteres', (value) => !value || (value && value.length > 6)),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Senhas não conferem')
 
 })
