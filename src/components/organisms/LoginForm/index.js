@@ -7,6 +7,7 @@ import TextField from '../../molecules/TextField'
 import { MdMailOutline } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
 import { useHistory } from 'react-router-dom'
+import Loader from '../../atoms/Loader'
 import Alert from '../../molecules/Alert'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
 
 
 const LoginForm = () => {
-    const { register, handleSubmit,  formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
     const { login, error, loading } = useAuth()
@@ -59,7 +60,7 @@ const LoginForm = () => {
                 error={errors.password?.message}
                 {...register("password", { required: true })} />
             {error && <span>{error}</span>}
-            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'login'}</Button>
+            <Button type="submit" disabled={loading}>{loading ? <Loader /> : 'login'}</Button>
             <Alert open={alert} color='success' timeout={4000} message="Usuário criado com sucesso" onClose={handleAlertClose} />
         </Form>
 

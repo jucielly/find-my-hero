@@ -3,6 +3,7 @@ import Button from '../../atoms/Button'
 import LinkButton from '../../atoms/LinkButton'
 import { useAuth } from '../../../providers/auth'
 import styled from 'styled-components'
+import Loader from '../../atoms/Loader'
 import { useForm } from 'react-hook-form'
 import TextField from '../../molecules/TextField'
 import { MdMailOutline } from "react-icons/md";
@@ -10,6 +11,7 @@ import { MdLockOutline } from "react-icons/md";
 import { MdPersonOutline } from "react-icons/md";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+
 
 
 
@@ -84,7 +86,7 @@ const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
                 error={errors.confirmPassword?.message}
                 {...register("confirmPassword", { required: true })} />
             {error && <span>{error}</span>}
-            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'salvar'}</Button>
+            <Button type="submit" disabled={loading}>{loading ? <Loader /> : 'salvar'}</Button>
             <LinkButton type='button' onClick={handleLogout}>Sair</LinkButton>
         </Form >
     );

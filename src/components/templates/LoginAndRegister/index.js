@@ -40,7 +40,7 @@ flex-direction:column;
  color: #fff;
  h2 {
      letter-spacing: 10px;;
-     font-family: 'Marvel';
+     font-family: 'Marvel', sans-serif;
      font-size: 4em;
      margin: 40px;
  }
