@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Input from '../../atoms/Input'
 
 
-const TextField = React.forwardRef(({ color, icon: Icon, error, ...props }, ref) => {
+const TextField = React.forwardRef(({ color, border, icon: Icon, error, ...props }, ref) => {
     return (
-        <Wrapper color={color}>
+        <Wrapper color={color} borde={border}r>
             {Icon && <Icon className="icon" />}
             <Input className="input" {...props} ref={ref} />
             {error && <small className="error">{error}</small>}
@@ -22,10 +22,12 @@ position: relative;
 width: 40%;
 padding-bottom: 15px;
 
+
 .input {
     color: ${props => props.theme.colors.defaultWhite};
     width: 100%;
     padding-left: 70px;
+    border-bottom: 1px solid ${props => props.theme.colors[props.border]};
 }
 .icon {
     color: ${props => props.theme.colors[props.color]};
