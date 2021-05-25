@@ -10,9 +10,9 @@ import { useAuth } from '../../../providers/auth'
 
 const LoginForm = () => {
     const { register, handleSubmit } = useForm();
-    const { login } = useAuth()
+    const { login, loginError, loginLoading} = useAuth()
 
-
+     
     const onSubmit = data => login(data.email, data.password)
     return (
 

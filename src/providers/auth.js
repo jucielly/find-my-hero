@@ -17,6 +17,7 @@ export const useAuth = () => useContext(authContext)
 
 const AuthProvider = ({ children }) => {
     const { push } = useHistory()
+    const [ready, setReady] = useState(false)
     const [user, setUser] = useState()
     const [loggedIn, setIsLoggedIn] = useState(false)
 
@@ -45,9 +46,10 @@ const AuthProvider = ({ children }) => {
         if (credentials.user) {
             setUser(credentials.user)
             setIsLoggedIn(true)
+            console.log('oi')
             setToken(credentials.token)
         }
-
+        setReady(true)
     }, [])
     return (
         <authContext.Provider value={{
@@ -56,7 +58,7 @@ const AuthProvider = ({ children }) => {
             login,
             logout
         }}>
-            {children}
+            {ready ? children : null}
         </authContext.Provider>
     )
 }
