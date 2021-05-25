@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ProfileForm from '../components/molecules/ProfileForm'
+import ProfileForm from '../components/organisms/ProfileForm'
 import UserService from '../services/user'
 import ErrorService from '../services/error'
 import Alert from '../components/molecules/Alert'

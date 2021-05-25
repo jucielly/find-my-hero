@@ -7,7 +7,7 @@ import TextField from '../../molecules/TextField'
 import { MdMailOutline } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
 import { useHistory } from 'react-router-dom'
-import Alert from '../Alert'
+import Alert from '../../molecules/Alert'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 

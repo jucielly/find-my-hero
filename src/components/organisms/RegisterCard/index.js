@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from '../../molecules/RegisterForm'
+import RegisterForm from '../RegisterForm'
 import { Link } from 'react-router-dom'
 import LoginAndRegister from '../../templates/LoginAndRegister'
 import RegisterFormContainer from '../../../containers/RegisterForm'

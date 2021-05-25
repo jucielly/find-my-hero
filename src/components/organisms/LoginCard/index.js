@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../../molecules/LoginForm'
+import LoginForm from '../LoginForm'
 import { Link } from 'react-router-dom'
 import LoginAndRegister from '../../templates/LoginAndRegister'
 
