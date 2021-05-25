@@ -16,7 +16,7 @@ import * as yup from "yup";
 const schema = yup.object().shape({
     name: yup.string().required('Defina o nome'),
     email: yup.string().email('Email inválido').required('Defina seu email'),
-    currentPassword: yup.string().required('Digite sua senha atual').min(7, 'Sua senha deve ter mais de 7 caracteres'),
+    currentPassword: yup.string().required('Digite sua senha atual').min(8, 'Sua senha deve ter mais de 8 caracteres'),
     password: yup.string().test('min', 'Sua senha deve ter mais de 7 caracteres', (value) => !value || (value && value.length > 6)),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Senhas não conferem')
 
@@ -45,6 +45,7 @@ const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
         <Form onSubmit={handleSubmit(onSubmit)}>
             <TextField
                 color="primary"
+                border="primary"
                 placeholder="nome"
                 name="name"
                 icon={MdPersonOutline}
@@ -64,6 +65,7 @@ const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
                 name="currentPassword"
                 icon={MdLockOutline}
                 error={errors.currentPassword?.message}
+                type="password"
                 {...register("currentPassword", { required: true })} />
             <TextField
                 placeholder="nova senha"
@@ -71,12 +73,14 @@ const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
                 name="password"
                 icon={MdLockOutline}
                 error={errors.password?.message}
+                type="password"
                 {...register("password", { required: true })} />
             <TextField
                 placeholder="confirma nova senha"
                 color="primary"
                 name="confirmPassword"
                 icon={MdLockOutline}
+                type="password"
                 error={errors.confirmPassword?.message}
                 {...register("confirmPassword", { required: true })} />
             {error && <span>{error}</span>}
