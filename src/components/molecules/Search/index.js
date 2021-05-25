@@ -9,7 +9,7 @@ import styled from 'styled-components'
 const Search = () => {
     return (
         <StyledWrapper>
-            <Input placeholder="Senha" className="search-input" />
+            <Input placeholder="pesquisar" className="search-input" />
             <IconButton className="search-btn"><MdSearch /></IconButton>
         </StyledWrapper>
     )
@@ -21,7 +21,8 @@ export default Search;
 const StyledWrapper = styled.div`
 position: relative;
 width: 40%;
-padding-bottom: 15px;
+padding-bottom: 0px;
+border-bottom: 1px solid ${props => props.theme.primary};
 .search-input {
     color: ${props => props.theme.primary};
     width: 100%;
