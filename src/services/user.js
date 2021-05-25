@@ -6,10 +6,13 @@ class UserService {
         return api.post('/users', user)
     }
 
-    static login(email,password) {
-    return api.post("/users/login", email,password)
+    static login(email, password) {
+        return api.post("/users/login", {
+            email,
+            password
+        })
 
-      
+
     }
 }
 
