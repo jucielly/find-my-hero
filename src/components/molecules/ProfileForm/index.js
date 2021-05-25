@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../../atoms/Button'
 import LinkButton from '../../atoms/LinkButton'
 import { useAuth } from '../../../providers/auth'
@@ -8,17 +8,39 @@ import TextField from '../../molecules/TextField'
 import { MdMailOutline } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
 import { MdPersonOutline } from "react-icons/md";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
 
 
+const schema = yup.object().shape({
+    name: yup.string().required('Defina o nome'),
+    email: yup.string().email('Email inválido').required('Defina seu email'),
+    currentPassword: yup.string().min(8, 'Sua senha deve ter mais de 8 caracteres').required('Digite sua senha atual'),
+    password: yup.string().test('min', 'Sua senha deve ter mais de 8 caracteres', (value) => !value || (value && value.length > 7)),
+    confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Senhas não conferem')
 
-const ProfileForm = ({ onSubmit }) => {
-    const { register, handleSubmit } = useForm();
+})
+
+
+const ProfileForm = ({ onSubmit, loading, error, initialValues }) => {
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
     const { logout } = useAuth()
+
+    useEffect(() => {
+        if (initialValues) {
+            setValue('name', initialValues.name)
+            setValue('email', initialValues.email)
+        }
+    }, [initialValues])
 
     const handleLogout = () => {
         logout()
     }
+
+
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <TextField
@@ -26,7 +48,7 @@ const ProfileForm = ({ onSubmit }) => {
                 placeholder="nome"
                 name="name"
                 icon={MdPersonOutline}
-                required
+                error={errors.name?.message}
                 {...register("name", { required: true })} />
             <TextField
                 type="email"
@@ -34,30 +56,31 @@ const ProfileForm = ({ onSubmit }) => {
                 name="email"
                 placeholder="email"
                 icon={MdMailOutline}
-                required
+                error={errors.email?.message}
                 {...register("email", { required: true })} />
             <TextField
-                placeholder="senha antiga"
+                placeholder="senha atual"
                 color="primary"
-                name="oldPassword"
+                name="currentPassword"
                 icon={MdLockOutline}
-                required
-                {...register("password", { required: true })} />
+                error={errors.currentPassword?.message}
+                {...register("currentPassword", { required: true })} />
             <TextField
-                placeholder="nova antiga"
+                placeholder="nova senha"
                 color="primary"
-                name="oldPassword"
+                name="password"
                 icon={MdLockOutline}
-                required
+                error={errors.password?.message}
                 {...register("password", { required: true })} />
             <TextField
                 placeholder="confirma nova senha"
                 color="primary"
                 name="confirmPassword"
                 icon={MdLockOutline}
-                required
+                error={errors.confirmPassword?.message}
                 {...register("confirmPassword", { required: true })} />
-            <Button type="submit">salvar</Button>
+            {error && <span>{error}</span>}
+            <Button type="submit" disabled={loading}>{loading ? 'carregando...' : 'salvar'}</Button>
             <LinkButton type='button' onClick={handleLogout}>Sair</LinkButton>
         </Form >
     );

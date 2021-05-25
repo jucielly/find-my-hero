@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import ProfileForm from '../../molecules/ProfileForm'
 import { MdPersonOutline } from "react-icons/md";
+import EditProfileContainer from '../../../containers/EditProfile'
 
 
 
-const EditProfile = ({ user }) => {
+const EditProfile = () => {
     return (
         <>
             <Container>
                 <MdPersonOutline className="icon" />
-                <p>Olá, {user} </p>
             </Container>
-            <ProfileForm />
+            <EditProfileContainer />
         </>
     )
 }

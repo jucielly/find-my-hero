@@ -16,7 +16,7 @@ const Profile = () => {
                     <Link to="/home"><MdKeyboardBackspace className="icon" /></Link>
                 </IconButton>}
                 navigationOptions={<ul className="list"> <li>MEU PERFIL</li></ul>} />
-            <EditProfile user="Malcom X" />
+            <EditProfile  />
         </>
     )
 }
