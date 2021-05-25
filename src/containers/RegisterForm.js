@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import RegisterForm from '../components/molecules/RegisterForm'
+import RegisterForm from '../components/organisms/RegisterForm'
 import UserService from '../services/user'
 import ErrorService from '../services/error'
 import { useHistory } from 'react-router-dom'
