@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from '../../atoms/Button'
+import LinkButton from '../../atoms/LinkButton'
+import { useAuth } from '../../../providers/auth'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import TextField from '../../molecules/TextField'
@@ -12,6 +14,11 @@ import { MdPersonOutline } from "react-icons/md";
 
 const ProfileForm = ({ onSubmit }) => {
     const { register, handleSubmit } = useForm();
+    const { logout } = useAuth()
+
+    const handleLogout = () => {
+        logout()
+    }
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             <TextField
@@ -23,7 +30,7 @@ const ProfileForm = ({ onSubmit }) => {
                 {...register("name", { required: true })} />
             <TextField
                 type="email"
-                color="primary" 
+                color="primary"
                 name="email"
                 placeholder="email"
                 icon={MdMailOutline}
@@ -50,8 +57,8 @@ const ProfileForm = ({ onSubmit }) => {
                 icon={MdLockOutline}
                 required
                 {...register("confirmPassword", { required: true })} />
-
-            <Button type="submit">LOGIN</Button>
+            <Button type="submit">salvar</Button>
+            <LinkButton type='button' onClick={handleLogout}>Sair</LinkButton>
         </Form >
     );
 }
