@@ -3,6 +3,7 @@ import Button from '../../atoms/Button'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import TextField from '../../molecules/TextField'
+import Loader from '../../atoms/Loader'
 import { MdMailOutline } from "react-icons/md";
 import { MdLockOutline } from "react-icons/md";
 import { MdPersonOutline } from "react-icons/md";
@@ -12,7 +13,7 @@ import * as yup from "yup";
 
 
 const schema = yup.object().shape({
-    name: yup.string().required('Defina o nome'),
+    name: yup.string().required('Defina o nome').min(2,'min de 2 letras no nome'),
     email: yup.string().email('Email inválido').required('Defina seu email'),
     password: yup.string().required('Digite sua senha').test('min', 'Sua senha deve ter mais de 8 caracteres', (value) => !value || (value && value.length > 7)),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Senhas não conferem').required('Digite a senha novamente')
@@ -61,7 +62,7 @@ const RegisterForm = ({ onSubmit, loading, error }) => {
                 {...register("confirmPassword", { required: true })} />
 
             {error && <span>{error}</span>}
-            <Button type="submit" disabled={loading} >{loading ? 'carregando...' : 'cadastrar'}</Button>
+            <Button type="submit" disabled={loading} >{loading ? <Loader/> : 'cadastrar'}</Button>
         </Form>
 
 
