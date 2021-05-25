@@ -5,11 +5,11 @@ import { MdPersonOutline } from "react-icons/md";
 
 
 
-const UsernameInput = ({color}) => {
+const UsernameInput = ({color, register,required,label}) => {
     return (
         <Wrapper color={color}>
             <MdPersonOutline className="icon"/>
-            <Input placeholder="User name" className="input" />
+            <Input placeholder="User name" className="input" name={label} {...register(label,{required})}/>
         </Wrapper>
     )
 }

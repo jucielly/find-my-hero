@@ -5,11 +5,11 @@ import { MdMailOutline} from "react-icons/md";
 
 
 
-const EmailInput = ({color}) => {
+const EmailInput = ({color, register,required,label}) => {
     return (
         <Wrapper color={color}>
             <MdMailOutline className="icon"/>
-            <Input placeholder="Email" className="input" />
+            <Input placeholder="Email" className="input"  name={label} {...register(label,{required})}/>
         </Wrapper>
     )
 }
