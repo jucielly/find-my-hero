@@ -11,10 +11,12 @@ export default createGlobalStyle`
 body {
     -webkit-font-smoothing: antialiased;
     font-family: 'Roboto', sans-serif;
+    
   
 }
 button {
     cursor: pointer;
+    text-transform: uppercase;
 }
 button:focus {
     outline: none;

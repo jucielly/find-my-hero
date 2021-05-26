@@ -17,6 +17,7 @@ export default InformationCard
 
 
 const Container = styled.div`
+margin: 50px;
 display: flex;
 align-items: stretch;
 
