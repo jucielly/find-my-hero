@@ -10,7 +10,7 @@ const NavigationOptions = () => {
         <ul className="list">
             <li><Link className="link" to="/home">PERSONAGENS</Link></li>
             <li><Link className="link" to="/comics">QUADRINHOS</Link></li>
-            <li><Link className="link" to="/likeds">MEUS FAVORITOS</Link></li>
+            <li><Link className="link" to="/favoriteds">MEUS FAVORITOS</Link></li>
         </ul>
 
     );

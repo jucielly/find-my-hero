@@ -17,7 +17,15 @@ const ListPage = ({ items, onSearch, onFavorite, loading, onNextPage }) => {
                     <Loader />
                 </LoaderContainer>}
                 <Container>
-                    {items.map(item => <ImageCard key={item.id} img={item.image} title={item.title} subtitle={item.subtitle} linkTo={item.link} />)}
+                    {items.map(item => <ImageCard
+                        key={item.id}
+                        img={item.image}
+                        title={item.title}
+                        subtitle={item.subtitle}
+                        linkTo={item.link}
+                        onFavorited={favorited => onFavorite(item, favorited)}
+                        favorited={item.favorited} 
+                        />)}
                 </Container>
                 <Button onClick={onNextPage}>Carregar mais</Button>
             </NavigationTemplate>

@@ -3,9 +3,10 @@ import api from './api'
 
 class MarvelService {
     static searchCharaters(name,page) {
+        console.log('name', name, typeof name)
         return api.get('/marvel/character', {
             params: {
-                name,
+                name: name || undefined,
                 page
             }
         })

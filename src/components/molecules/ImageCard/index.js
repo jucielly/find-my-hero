@@ -41,9 +41,10 @@ display: flex;
 color: #fff;
 flex-direction: column;
 position: relative;
-height: 390px;
+height: 420px;
  width: 240px;
  margin: 40px;
+
 
    .img{
     width: 240px;
@@ -60,6 +61,7 @@ height: 390px;
 
        h3 {
            font-size: 14px;
+           color: #fff;
        }
 
        p {
@@ -92,7 +94,7 @@ height: 390px;
        }
 
        .favorited {
-           background-color: #F30
+           color: #F30
        }
 
      

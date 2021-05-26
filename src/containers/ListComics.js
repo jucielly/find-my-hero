@@ -6,24 +6,25 @@ import Alert from '../components/molecules/Alert'
 
 
 
-const ListCharacterContainer = () => {
+const ListComics = () => {
     const [items, setItems] = useState([]);
     const [search, setSearch] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState()
     const [page, setPage] = useState(1);
 
-    const fetchCharacters = (name, page) => {
+    const fetchComics = (name, page) => {
         setError(undefined)
         setLoading(true)
-        MarvelService.searchCharaters(name, page).then(response => {
-            const characters = response.data.results.map(character => ({
-                ...character,
-                title: character.name,
-                link: `/character/${character.id}`
+        MarvelService.searchComics(name, page).then(response => {
+            const comics = response.data.results.map(comic => ({
+                ...comic,
+                title: comic.title,
+                subtitle: comic.creators.slice(0, 2).join(', '),
+                link: `/comic/${comic.id}`
 
             }))
-            setItems((items) => [...items, ...characters])
+            setItems((items) => [...items, ...comics])
         }).catch(error => {
             const message = ErrorService.getErrorMessage(error)
             setError(message)
@@ -35,26 +36,26 @@ const ListCharacterContainer = () => {
             console.log('search')
             setItems([])
             setPage(1)
-            fetchCharacters(search)
+            fetchComics(search)
         }
 
     }, [search])
 
     useEffect(() => {
         console.log('mount')
-        fetchCharacters()
+        fetchComics()
     }, [])
 
 
 
-    const handleFavorite = (character, favorited) => {
+    const handleFavorite = (comic, favorited) => {
         setError(undefined)
         setItems(items => items.map(item => ({
             ...item,
-            favorited: character.id === item.id ? favorited : item.favorited
+            favorited: comic.id === item.id ? favorited : item.favorited
 
         })))
-        MarvelService.favoriteCharacter(character.id, favorited)
+        MarvelService.favoriteComic(comic.id, favorited)
             .catch(error => {
                 const message = ErrorService.getErrorMessage(error)
                 setError(message)
@@ -64,7 +65,7 @@ const ListCharacterContainer = () => {
     const handleNextPage = () => {
         const nextPage = page + 1
         setPage(nextPage)
-        fetchCharacters(search, nextPage)
+        fetchComics(search, nextPage)
     }
     return (
         <>
@@ -74,4 +75,4 @@ const ListCharacterContainer = () => {
     )
 }
 
-export default ListCharacterContainer
+export default ListComics
