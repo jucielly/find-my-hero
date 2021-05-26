@@ -8,7 +8,7 @@ import Loader from '../../atoms/Loader'
 import Button from '../../atoms/Button';
 
 
-const ListPage = ({ items, onSearch, onFavorite, loading, onNextPage }) => {
+const ListPage = ({ items, onSearch, onFavorite, loading, onNextPage, emptyMessage }) => {
     return (
         <>
             <NavigationTemplate navigationOptions={<NavigationOptions />}>
@@ -17,6 +17,7 @@ const ListPage = ({ items, onSearch, onFavorite, loading, onNextPage }) => {
                     <Loader />
                 </LoaderContainer>}
                 <Container>
+                    {items.length < 1 && <span>{emptyMessage}</span>}
                     {items.map(item => <ImageCard
                         key={item.id}
                         img={item.image}
@@ -27,7 +28,7 @@ const ListPage = ({ items, onSearch, onFavorite, loading, onNextPage }) => {
                         favorited={item.favorited} 
                         />)}
                 </Container>
-                <Button onClick={onNextPage}>Carregar mais</Button>
+                {onNextPage && <Button onClick={onNextPage}>Carregar mais</Button>}
             </NavigationTemplate>
 
 

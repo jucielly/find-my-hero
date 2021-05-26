@@ -25,7 +25,9 @@ align-items: center;
 flex-direction: column;
 width: 50%;
 
-
+img{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 20px;
+}
 
 h2 {
     text-transform: uppercase;

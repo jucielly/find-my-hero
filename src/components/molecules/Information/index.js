@@ -32,6 +32,7 @@ h2 {
 }
 
 .subtitle {
+    margin: 30px;
     text-transform: uppercase;
 }
 
