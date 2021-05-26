@@ -73,7 +73,7 @@ export default RegisterForm;
 
 
 const Form = styled.form`
-width: 175%;
+width: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;

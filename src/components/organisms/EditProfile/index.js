@@ -9,9 +9,10 @@ const EditProfile = () => {
     return (
         <>
             <Container>
-                <MdPersonOutline className="icon" />
+                <MdPersonOutline className="person" />
+                <EditProfileContainer />
             </Container>
-            <EditProfileContainer />
+            
         </>
     )
 }
@@ -25,7 +26,7 @@ width: 100%;
  align-items: center;
  
  
-.icon {
+.person {
     height: 90px;
     width: 90px;
 }

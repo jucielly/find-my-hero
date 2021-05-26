@@ -13,11 +13,11 @@ import IconButton from '../../atoms/IconButton'
 const Header = ({ navigationOptions }) => {
     return (
         <Container>
-            <HeaderTemplate children={
+            <HeaderTemplate navigationOptions={navigationOptions}>
                 <IconButton className="profile-btn">
                     <Link to="/profile"><MdPersonOutline className="icon" /></Link>
-                </IconButton>} 
-            navigationOptions={navigationOptions} />
+                </IconButton>
+            </HeaderTemplate>
         </Container>
 
 

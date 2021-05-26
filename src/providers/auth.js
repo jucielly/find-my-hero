@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
 
     const login = (email, password) => {
         setLoading(true)
+        setError('')
         UserService.login(email, password).then(response => {
             const { user, token } = response.data
             setUser(user)

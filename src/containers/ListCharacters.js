@@ -66,7 +66,14 @@ const ListCharacterContainer = () => {
     }
     return (
         <>
-            <ListPage items={items} loading={loading} error={error} onSearch={setSearch} onNextPage={handleNextPage} onFavorite={handleFavorite} />
+            <ListPage 
+            items={items} 
+            loading={loading} 
+            error={error} 
+            onSearch={setSearch} 
+            onNextPage={handleNextPage} 
+            onFavorite={handleFavorite} 
+            emptyMessage="Personagens não encontrados :("/>
             <Alert color="danger" open={!!error} message={error} onClose={() => setError(undefined)} timeout={5000} />
         </>
     )

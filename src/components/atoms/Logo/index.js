@@ -6,6 +6,6 @@ width:150px;
 
 `;
 
-const Logo = () => <MarvelLogo src='assets/marvel-logo.png' />
+const Logo = () => <MarvelLogo src='/assets/marvel-logo.png' />
 
 export default Logo;

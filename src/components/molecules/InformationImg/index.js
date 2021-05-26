@@ -8,7 +8,7 @@ const Information = ({ title, subtitle, src }) => {
         <Container>
             <h2>{title}</h2>
             <p className="subtitle">{subtitle}</p>
-            <img src={src} alt='comic' />
+            {src && <img src={src} alt='comic' />}
 
         </Container>
 

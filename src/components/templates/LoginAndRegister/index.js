@@ -12,7 +12,7 @@ const LoginAndRegister = ({ children, title }) => {
         <Container>
             <LogoCard />
             <Card>
-                <h2>FIND MY HERO</h2>
+                <h2>find my hero</h2>
                 {children}
             </Card>
 
@@ -27,7 +27,15 @@ height: 100vh;
 display: flex;
 align-items: stretch;
 background:  ${props => props.theme.colors.terciary};
+
+
+a, a:visited {
+    color: #fff;
+    
+}
 `
+
+
 
 const Card = styled.div`
 display: flex;
@@ -43,6 +51,7 @@ flex-direction:column;
      font-family: 'Marvel', sans-serif;
      font-size: 4em;
      margin: 40px;
+     text-transform: uppercase;
  }
 
 `
