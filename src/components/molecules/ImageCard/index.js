@@ -2,12 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseCard from '../../atoms/BaseCard';
 import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 import IconButton from '../../atoms/IconButton'
 import { Link } from 'react-router-dom'
 
 
 
-const ImageCard = ({ img, title, subtitle, linkTo }) => {
+const ImageCard = ({ img, title, subtitle, linkTo, favorited, onFavorited }) => {
+
+    const handleFavorited = () =>  {
+        onFavorited(!favorited)
+    }
     return (
 
         <StyledBaseCard>
@@ -17,10 +22,12 @@ const ImageCard = ({ img, title, subtitle, linkTo }) => {
                     <h3>{title}</h3>
                     <p>{subtitle}</p>
                 </div>
-                <IconButton className="favourite-btn">
-                    < MdFavoriteBorder />
-                </IconButton>
             </Link>
+            <IconButton className="favorite-btn" onClick={handleFavorited}>
+                {!favorited && < MdFavoriteBorder className="unfavorited" />}
+                {favorited && <MdFavorite className="favorited" />}
+            </IconButton>
+
         </StyledBaseCard >
 
     )
@@ -62,20 +69,33 @@ height: 390px;
        }
    }
 
-   .favourite-btn{
+   .favorite-btn{
        color: #fff;
        margin: 40px 10px 5px 0px;
        position: absolute;
        bottom: 0px;
        right: 0px;
        height: 30px;
-        width: 25px;
+        width: 30px;
 
-        &:active {
-            color: #F30;
-        }
 
        }
+
+       .unfavorited {
+        color: #fff;
+        &:hover {
+         color: #F30;
+           border-radius: 50%;
+           height: 30px;
+           width: 30px;
+       }
+       }
+
+       .favorited {
+           background-color: #F30
+       }
+
+     
 
        .link {
         text-decoration: none;
@@ -84,4 +104,8 @@ height: 390px;
                
            }
        }
+
+      
+
+
 `

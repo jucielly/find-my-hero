@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
-import Search from '../../molecules/Search';
 import Header from '../../organisms/Header'
 
 
 
-const HomeTemplate = ({ children, navigationOptions }) => {
+const NavigationTemplate = ({ children, navigationOptions }) => {
     return (
         <Container>
             <Header navigationOptions={navigationOptions}/>
-            <Search className="search" />
             {children}
         </Container>
 
@@ -17,7 +15,9 @@ const HomeTemplate = ({ children, navigationOptions }) => {
     )
 }
 
-export default HomeTemplate
+export default NavigationTemplate
 
 
-const Container = styled.div``
+const Container = styled.div`
+
+`

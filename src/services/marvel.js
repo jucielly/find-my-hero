@@ -4,7 +4,7 @@ import api from './api'
 class MarvelService {
     static searchCharaters(name,page) {
         return api.get('/marvel/character', {
-            query: {
+            params: {
                 name,
                 page
             }
@@ -26,7 +26,7 @@ class MarvelService {
 
      static searchComics(name,page) {
         return api.get('/marvel/comic', {
-            query: {
+            params: {
                 name,
                 page
             }

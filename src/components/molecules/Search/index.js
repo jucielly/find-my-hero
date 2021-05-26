@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from "../../atoms/Input"
 import IconButton from '../../atoms/IconButton'
 import { MdSearch } from "react-icons/md";
@@ -6,11 +6,28 @@ import styled from 'styled-components'
 
 
 
-const Search = () => {
+const Search = ({ onSearch }) => {
+    const [search, setSearch] = useState('')
+
+    const handleInputChange = (event) => {
+        setSearch(event.target.value)
+    }
+
+    const handleInputKeyUp = (event) => {
+        console.log(event.keyCode)
+        if (event.keyCode === 13){
+            handleSearch()
+        }
+    }
+
+    const handleSearch = () => {
+        console.log(search)
+        onSearch(search)
+    }
     return (
         <StyledWrapper>
-            <Input placeholder="pesquisar" className="search-input" />
-            <IconButton className="search-btn"><MdSearch /></IconButton>
+            <Input placeholder="pesquisar" className="search-input" onChange={handleInputChange} onKeyUp={handleInputKeyUp} value={search} />
+            <IconButton className="search-btn" onClick={handleSearch}><MdSearch /></IconButton>
         </StyledWrapper>
     )
 }
