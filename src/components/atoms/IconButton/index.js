@@ -1,14 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const IconButton = styled.button`
- background-color: transparent;
-    box-shadow: none;
-    border: none;
-    font-size: 30px;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  font-size: 30px;
 
-    &:active {
-        outline: none;
-    }
-`
+  &:active {
+    outline: none;
+  }
+`;
 
 export default IconButton;
