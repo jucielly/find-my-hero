@@ -9,9 +9,11 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "polished": "^4.1.2",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.6.6",
     "react-icons": "^4.2.0",
+    "react-loading-skeleton": "^2.2.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -23,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint-fix": "eslint 'src/**/*.js' --fix"
   },
   "eslintConfig": {
     "extends": [
