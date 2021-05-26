@@ -4,8 +4,6 @@ import MarvelService from '../services/marvel'
 import ErrorService from '../services/error'
 import Alert from '../components/molecules/Alert'
 
-
-
 const ListCharacterContainer = () => {
     const [items, setItems] = useState([]);
     const [search, setSearch] = useState(null);
