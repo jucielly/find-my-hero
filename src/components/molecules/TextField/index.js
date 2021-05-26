@@ -19,7 +19,7 @@ export default TextField
 
 const Wrapper = styled.div`
 position: relative;
-width: 40%;
+width: 70%;
 padding-bottom: 15px;
 
 
