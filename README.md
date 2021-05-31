@@ -10,7 +10,7 @@ Front da aplicação construida em **React** onde você pode criar uma conta, pe
 1. Clone esse repositorio.
 2. `npm install` **no terminal**: para baixar todas as dependencias.
 3. `npm start` **no terminal**: inicia um server local para desenvolvimento.
-4. Consulte a documentação da [marvel-api](https://github.com/jucielly/marvel-api) para usar o backend.
+4. Consulte a documentação da [Find my hero api](https://github.com/jucielly/marvel-api) para usar o backend.
 
 ## Estrutura do projeto:
 
