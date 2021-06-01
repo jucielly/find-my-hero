@@ -49,6 +49,13 @@ const Container = styled.div`
       li {
         padding: 10px 40px 10px 40px;
       }
+
+      @media (max-width: 425px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     }
 
     .link {
