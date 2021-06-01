@@ -18,4 +18,14 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 60%;
+
+  @media (max-width: 768px) {
+    width: 0%;
+    .marvel-logo {
+      width: 200px;
+    }
+    .avangers-logo {
+      visibility: hidden;
+    }
+  }
 `;

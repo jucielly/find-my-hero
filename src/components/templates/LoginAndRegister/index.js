@@ -24,6 +24,12 @@ const Container = styled.div`
   a:visited {
     color: #fff;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
@@ -41,5 +47,15 @@ const Card = styled.div`
     font-size: 4em;
     margin: 40px;
     text-transform: uppercase;
+
+    @media (max-width: 425px) {
+      font-size: 2.5em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px 20px 0px 0px;
   }
 `;
