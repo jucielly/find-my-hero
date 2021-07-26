@@ -41,7 +41,7 @@ export default Search;
 
 const StyledWrapper = styled.div`
   position: relative;
-  width: 40%;
+  width: 400px;
   padding-bottom: 0px;
   border-bottom: 1px solid ${(props) => props.theme.primary};
   .search-input {
@@ -75,5 +75,9 @@ const StyledWrapper = styled.div`
   .error {
     margin-left: 20px;
     color: red;
+  }
+
+  @media (max-width: 425px) {
+    width: 250px;
   }
 `;

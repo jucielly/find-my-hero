@@ -122,4 +122,8 @@ const Form = styled.form`
     border-bottom: 1px solid ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.primary};
   }
+
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `;

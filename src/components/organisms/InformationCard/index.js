@@ -23,4 +23,9 @@ const Container = styled.div`
   margin: 50px;
   display: flex;
   align-items: stretch;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
